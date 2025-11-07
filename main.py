@@ -29,5 +29,5 @@ for name, pid in park_ids.items():
     data = requests.get(f"https://queue-times.com/parks/{pid}/queue_times.json").json()
     filename = name.lower().replace(" ", "_").replace("'", "") + ".json"
     with open(filename, "w", encoding="utf-8") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=2)
     print(name, pid, "->", filename)
